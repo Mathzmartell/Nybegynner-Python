@@ -1,0 +1,39 @@
+import random
+
+user_wins = 0
+computer_wins = 0
+
+options = ["Jack sparrow", "Barbossa", "Øst-indiske selskap"]
+
+while True:
+    user_input = input("Skriv Jack Sparrow/Barbossa/Øst-indiske selskap eller Q for å avslutte: ").lower()
+    if user_input == "q":
+        break
+
+    if user_input not in options:
+        continue
+
+    random_number = random.randint(0, 2)
+    # Jack Sparrow: 0, Barbossa: 1, Øst-indiske selskap: 2
+    computer_pick = options[random_number]
+    print("Kalypso valgte", computer_pick + ".")
+
+    if user_input == "Øst-indiske selskap" and computer_pick == "Barbossa":
+        print("Hyll hennes majestet, den ugudelige Barbarossa henger fra vårt kjære flaggskip")
+        user_wins += 1
+
+    elif user_input == "Øst-indiske selskap" and computer_pick == "Jack Sparrow":
+        print("Langemann lurer alle 8)")
+        user_wins += 1
+
+    elif user_input == "Barbarossa" and computer_pick == "Jack Sparrow":
+        print("Si farvel til den sorte perle *skjelletlyder* ")
+        user_wins += 1
+
+    else:
+        print("OBSERVER KREFTENE TIL HAVGUDINNEN!")
+        computer_wins += 1
+
+print("Du vant", user_wins, "ganger.")
+print("Kalypso druknet deg", computer_wins, "ganger.")
+print("På gjensyn!!")
