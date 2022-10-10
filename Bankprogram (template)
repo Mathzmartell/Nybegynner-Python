@@ -1,0 +1,60 @@
+import numpy as np
+import pandas as pd
+import os
+import csv
+
+balance1 =open("Balance1.txt", "a")
+passwordfile =open("Password.txt", "a")
+savings = open("Saving.txt", "a")
+withdrawal = open("Withdrawal.txt", "a")
+p1 = balance1.readlines()
+print(p1)
+
+with open("Balance1.txt", "r") as b1:
+	csv_reader = csv.reader("Balance1.txt")
+b1 = open("Balance1.txt", "r")
+print(b1.mode)
+b1.close()
+
+
+def	check_bank(): 
+		if os.path.isfile('./balance1.txt') == True:
+			balance_file = open("Balance1.txt", "r")
+			if	float(balance_file.readline()) > 0.0:
+				bank = float(balance_file.readline())
+
+
+
+
+
+
+
+class user():
+	def	__init__(self, name, balance, deposit, withdrawal):
+		self.name = name
+		self.balance = balance
+		self.deposit = deposit
+		self.withdrawal = withdrawal
+
+		def	show_details(self):
+			print("personal details")
+			print("")
+			print("name ", self.name)
+			print("balance", + self.balance)
+
+class bank(user):
+	def	__init__(self, name, balance, deposit, withdrawal):
+		super().__init__(name, balance, deposit, withdrawal)
+		self.balance = 0
+
+	def	deposit(self,amount):
+		self.balance = self.balance + self.amount
+		print("The account balance has been updated : " + self.balance)
+
+	def withdrawal(self,amount):
+		self.amount = amount
+		if(self.amount > self.balance):
+			print("insufficient funds, you only have ", self.balance ,"left on your account")
+		else:
+			self.balance = self.balance - self.amount
+			print("The account balance has been updated, the new balance is: " + self.balance - self.amount ,"Thank you for using our atm")
